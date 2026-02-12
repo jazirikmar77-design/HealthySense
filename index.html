@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthySense</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 15px;
+  font-size: 18px;
+  color: white;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #0b7dda;
+}
+
+.tip {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  font-size: 18px;
+}
+
+footer {
+  background-color: #eee;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+img {
+  width: 100px;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>HealthySense</header>
+
+<div class="container" id="home">
+  <p>Welcome! Click a topic below to learn quick health tips:</p>
+
+  <button class="button" onclick="showTip('sleep')">Sleep Tips</button>
+  <button class="button" onclick="showTip('water')">Water Tips</button>
+  <button class="button" onclick="showTip('exercise')">Exercise Tips</button>
+  <button class="button" onclick="showTip('nutrition')">Nutrition Tips</button>
+</div>
+
+<div class="container" id="tipSection" style="display:none;">
+  <div class="tip" id="tipContent"></div>
+  <button class="button" onclick="goHome()">Back to Home</button>
+</div>
+
+<footer>
+  This site is for educational purposes only and not a medical diagnosis.
+</footer>
+
+<script>
+const tips = {
+  sleep: {
+    text: "Sleep 7–9 hours daily to improve focus, energy, and mood.",
+    img: "https://img.icons8.com/ios/100/000000/bed.png"
+  },
+  water: {
+    text: "Drink at least 8 cups of water every day to stay hydrated.",
+    img: "https://img.icons8.com/ios/100/000000/water.png"
+  },
+  exercise: {
+    text: "Exercise 30 minutes daily to stay healthy and energetic.",
+    img: "https://img.icons8.com/ios/100/000000/exercise.png"
+  },
+  nutrition: {
+    text: "Eat fruits and vegetables every day for a balanced diet.",
+    img: "https://img.icons8.com/ios/100/000000/apple.png"
+  }
+};
+
+function showTip(topic) {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("tipSection").style.display = "block";
+
+  const tip = tips[topic];
+  document.getElementById("tipContent").innerHTML =
+    "<p>" + tip.text + "</p><img src='" + tip.img + "' alt='icon'>";
+}
+
+function goHome() {
+  document.getElementById("home").style.display = "block";
+  document.getElementById("tipSection").style.display = "none";
+}
+</script>
+
+</body>
+</html>
