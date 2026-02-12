@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthySense</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f9f9;
+}
+
+header {
+  background-color: #2c7a7b;
+  color: white;
+  padding: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #38b2ac;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2c7a7b;
+}
+
+#tip-box {
+  display: none;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+footer {
+  background-color: #eee;
+  color: #555;
+  padding: 15px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>HealthySense</h1>
+  <p>Simple Health Tips for a Better Life</p>
+</header>
+
+<h2>Choose a Topic</h2>
+
+<button onclick="showTip('water')">Water Tips</button>
+<button onclick="showTip('exercise')">Exercise Tips</button>
+<button onclick="showTip('nutrition')">Nutrition Tips</button>
+<button onclick="showTip('sleep')">Sleep Tips</button>
+
+<div id="tip-box">
+  <h3 id="tip-title"></h3>
+  <p id="tip-text"></p>
+</div>
+
+<footer>
+  © 2026 HealthySense | Stay Healthy 🌿
+</footer>
+
+<script>
+const tips = {
+  water: {
+    title: "💧 Water Tips",
+    text: "Drink at least 8 glasses of water daily to stay hydrated."
+  },
+  exercise: {
+    title: "🏃 Exercise Tips",
+    text: "Exercise at least 30 minutes a day to keep your body active."
+  },
+  nutrition: {
+    title: "🥗 Nutrition Tips",
+    text: "Eat more fruits and vegetables for better health."
+  },
+  sleep: {
+    title: "😴 Sleep Tips",
+    text: "Sleep 7-8 hours every night to maintain energy."
+  }
+};
+
+function showTip(topic) {
+  const tip = tips[topic];
+  document.getElementById("tip-title").innerText = tip.title;
+  document.getElementById("tip-text").innerText = tip.text;
+  document.getElementById("tip-box").style.display = "block";
+}
+</script>
+
+</body>
+</html>
